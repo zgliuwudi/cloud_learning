@@ -12,8 +12,8 @@
   <div id="app"></div>
   <script>
     window.$docsify = {
-      name: 'PassJava-Learning',
-      repo: 'https://github.com/Jackson0714/PassJava-Platform',
+      name: 'cloud_learning',
+      repo: 'https://github.com/zgliuwudi/cloud_learning',
       loadNavbar: true,
       loadSidebar: true, // 加载自定义侧边栏
       maxLevel: 2, // 默认情况下会抓取文档中所有标题渲染成目录，可配置最大支持渲染的标题层级。
@@ -23,7 +23,7 @@
         '/.*/_sidebar.md': '/_sidebar.md',//防止意外回退
         '/.*/_navbar.md': '/_navbar.md'
       },
-      coverpage: true,
+      coverpage: true, //封面
       search: {
         placeholder: '搜索',
         noData: '找不到结果!',
@@ -32,10 +32,16 @@
     }
   </script>
   <script src="./js/docsify.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
-  <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
-  <script src="//unpkg.com/docsify-copy-code"></script>
+  <script src="./js/search.min.js"></script>
+  <script src="./js/prism-bash.js"></script>
+  <script src="./js/prism-java.js"></script>
+  <script src="./js/prism-sql.js"></script>
+  <script src="./js/docsify-copy-code.min.js"></script>
+
+<!--  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>-->
+<!--  <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>-->
+<!--  <script src="//unpkg.com/prismjs/components/prism-java.js"></script>-->
+<!--  <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>-->
+<!--  <script src="//unpkg.com/docsify-copy-code"></script>-->
 </body>
 </html>
