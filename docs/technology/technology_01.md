@@ -1,0 +1,5 @@
+# dependencyManagement
+
+## 与dependencies区别
+
+- dependencyManagement中内容子pom默认不引入，需要添加dependencies才依赖；而子pom默认依赖导入全部父pom中dependencies内容

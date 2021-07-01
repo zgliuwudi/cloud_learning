@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        namespace: member
+        group: dev
+        server-addr: 127.0.0.1:8849
+        file-extension: yaml
+        extension-configs[0]:
+          data-id: datasource.yml
+          group: ${spring.cloud.nacos.config.group}
+          refresh: true
+        extension-configs[1]:
+          data-id: mybatis.yml
+          group: ${spring.cloud.nacos.config.group}
+          refresh: true
+      discovery:
+        server-addr: 127.0.0.1:8849
+  application:
+    name: member
