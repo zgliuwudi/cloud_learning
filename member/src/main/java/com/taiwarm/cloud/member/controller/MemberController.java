@@ -9,6 +9,7 @@ import com.taiwarm.cloud.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.taiwarm.cloud.member.entity.MemberEntity;
 import com.taiwarm.cloud.member.service.MemberService;
 
+import javax.validation.Valid;
 
 
 /**
@@ -100,6 +102,12 @@ public class MemberController {
     @RequestMapping("/nacos/config/test")
     public String NacosConfigTest(){
         return "nick name="+nickName;
+    }
+
+    @RequestMapping("/exception/test")
+    public R exceptionTest(@Valid @RequestBody MemberEntity memberEntity){
+        System.out.println(memberEntity);
+        return R.ok();
     }
 
 }

@@ -25,9 +25,11 @@
         <module>renren-fast</module>
         <module>renren-generator</module>
         <module>common</module>
+        <module>gateway</module>
         <module>question</module>
         <module>member</module>
         <module>study</module>
+        <module>search</module>
     </modules>
 
 

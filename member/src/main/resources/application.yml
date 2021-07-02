@@ -20,3 +20,19 @@
 #nick:
 #  name: hello
 #
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          openfeign: debug
+          sleuth: debug
+spring:
+  zipkin:
+    base-url: http://127.0.0.1:9411/
+    discovery-client-enabled: false
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      probability: 1

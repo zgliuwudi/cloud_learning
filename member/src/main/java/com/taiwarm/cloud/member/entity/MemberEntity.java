@@ -7,9 +7,11 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
+import javax.validation.constraints.Positive;
+
 /**
  * 会员-会员表
- * 
+ *
  * @author wudi
  * @email wudi@taiwarm.com
  * @date 2021-07-01 08:02:58
@@ -27,6 +29,7 @@ public class MemberEntity implements Serializable {
 	/**
 	 * 小程序openid
 	 */
+	@Positive
 	private Integer miniOpenid;
 	/**
 	 * 服务号openid
@@ -39,6 +42,7 @@ public class MemberEntity implements Serializable {
 	/**
 	 * 会员等级id
 	 */
+	@Positive
 	private Long levelId;
 	/**
 	 * 用户名
