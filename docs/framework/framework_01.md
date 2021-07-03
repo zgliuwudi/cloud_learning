@@ -162,4 +162,6 @@
 | question | 8000   |      |
 | study    | 8002   |      |
 | search   | 8003   |      |
+| channel  | 8004   |      |
+| content  | 8005   |      |
 
