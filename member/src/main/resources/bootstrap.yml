@@ -4,17 +4,19 @@ spring:
       config:
         namespace: member
         group: dev
-        server-addr: 127.0.0.1:8849
+        server-addr: @nacos.ip@:@nacos.port@
         file-extension: yaml
         extension-configs[0]:
-          data-id: datasource.yml
+          data-id: datasource.yaml
           group: ${spring.cloud.nacos.config.group}
           refresh: true
         extension-configs[1]:
-          data-id: mybatis.yml
+          data-id: mybatis.yaml
           group: ${spring.cloud.nacos.config.group}
           refresh: true
       discovery:
-        server-addr: 127.0.0.1:8849
+        server-addr: @nacos.ip@:@nacos.port@
   application:
     name: member
+  profiles:
+    active: @profiles.active@

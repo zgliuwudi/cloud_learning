@@ -29,7 +29,7 @@ logging:
           sleuth: debug
 spring:
   zipkin:
-    base-url: http://127.0.0.1:9411/
+    base-url: http://@zipkin.ip@:@zipkin.port@/
     discovery-client-enabled: false
     sender:
       type: web

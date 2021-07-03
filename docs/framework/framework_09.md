@@ -5,22 +5,21 @@
 ```shell
 docker pull elasticsearch:7.4.2
 
-# /Users/daisy/Documents/study/docker/data下创建文件夹
-mkdir -p elasticsearch/config
-mkdir -p elasticsearch/data
+mkdir -p /mydata/elasticsearch/config
+mkdir -p /mydata/elasticsearch/data
 
 # 赋权
-chmod -R 777 elasticsearch/
+chmod -R 777 /mydata/elasticsearch/
 
-echo "http.host: 0.0.0.0" >> config/elasticsearch.yml
+echo "http.host: 0.0.0.0" >> /mydata/elasticsearch/config/elasticsearch.yml
 
 # 启动ES
 docker run --name elasticsearch-7.4.2 -p 9200:9200 -p 9300:9300 \
 -e "discovery.type"="single-node" \
 -e ES_JAVA_OPTS="-Xms64m -Xmx128m" \
--v /Users/daisy/Documents/study/docker/data/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
--v /Users/daisy/Documents/study/docker/data/elasticsearch/data:/usr/share/elasticsearch/data \
--v /Users/daisy/Documents/study/docker/data/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
+-v /mydata/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \
+-v /mydata/elasticsearch/data:/usr/share/elasticsearch/data \
+-v /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins \
 -d elasticsearch:7.4.2
 
 ```
@@ -30,9 +29,35 @@ docker run --name elasticsearch-7.4.2 -p 9200:9200 -p 9300:9300 \
 ```
 docker pull kibana:7.4.2
 
-docker run --name kibana-7.4.2 -e ELASTICSEARCH_HOSTS=http://192.168.3.13:9200 -p 5601:5601 -d kibana:7.4.2
+docker run --name kibana-7.4.2 -e ELASTICSEARCH_HOSTS=http://192.168.3.40:9200 -p 5601:5601 -d kibana:7.4.2
 
 ```
+
+### 报错
+
+```
+kibana [parent] Data too large, data for [<http_request>] would be [124135008/118.3mb], which is larger than the limit of [123273216/117.5mb]
+```
+
+解决方法：[kibana启动报错](https://blog.csdn.net/qq_25646191/article/details/108862795)
+
+vim /config/elasticsearch.yml
+
+```
+# 缓存回收大小，无默认值
+# 有了这个设置，最久未使用（LRU）的 fielddata 会被回收为新数据腾出空间
+# 控制fielddata允许内存大小，达到HEAP 20% 自动清理旧cache
+indices.fielddata.cache.size: 20%
+indices.breaker.total.use_real_memory: false
+# fielddata 断路器默认设置堆的 60% 作为 fielddata 大小的上限。
+indices.breaker.fielddata.limit: 40%
+# request 断路器估算需要完成其他请求部分的结构大小，例如创建一个聚合桶，默认限制是堆内存的 40%。
+indices.breaker.request.limit: 40%
+# total 揉合 request 和 fielddata 断路器保证两者组合起来不会使用超过堆内存的 70%(默认值)。
+indices.breaker.total.limit: 95%
+```
+
+
 
 ## ES安装中文分词器
 

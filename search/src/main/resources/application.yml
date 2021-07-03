@@ -4,6 +4,6 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 127.0.0.1:8449
+        server-addr: @nacos.ip@:@nacos.port@
 server:
   port: 8003
