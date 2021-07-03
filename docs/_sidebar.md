@@ -12,5 +12,7 @@
     * [整合ES](framework/framework_09.md)
     * [整合链路追踪](framework/framework_10.md)
     * [整合多环境开发](framework/framework_11.md)
+    * [整合Redisson](framework/framework_12.md)
+    * [整合Spring Cache](framework/framework_13.md)
 * 技术篇
     * [dependencyManagement使用说明](technology/technology_01.md)

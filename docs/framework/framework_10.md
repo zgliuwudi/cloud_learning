@@ -23,8 +23,33 @@
   ```
   docker pull openzipkin/zipkin
   docker run -d --restart always -p 9411:9411 --name zipkin openzipkin/zipkin 
-  
-  
   ```
 
-  
+- common的pom引入
+
+  ```xml
+   <!-- 链路追踪组件 Zipkin -->
+   <dependency>
+   		<groupId>org.springframework.cloud</groupId>
+   		<artifactId>spring-cloud-starter-zipkin</artifactId>
+   </dependency>
+  ```
+
+- 子模块application.yml引入
+
+  ```yaml
+  spring:
+    zipkin:
+      base-url: http://@zipkin.ip@:@zipkin.port@/
+      discovery-client-enabled: false
+      sender:
+        type: web
+    sleuth:
+      sampler:
+        probability: 1
+  ```
+
+- 测试效果
+
+  ![image-20210703095353121](../images/image-20210703095353121.png)
+
