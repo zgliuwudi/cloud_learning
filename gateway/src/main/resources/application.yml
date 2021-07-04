@@ -12,8 +12,30 @@ spring:
           uri: lb://member
           predicates:
             - Path=/member/**
+        - id: question
+          uri: lb://question
+          predicates:
+            - Path=/api/question/**
+          filters: #过滤器
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: renren-fast
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters: #过滤器
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
     nacos:
       discovery:
         server-addr: @nacos.ip@:@nacos.port@
+  cache:
+    type: redis
+  redis:
+    host: @redis.ip@
+    port: @redis.port@
 server:
   port: 8888
+redis:
+  ip: @redis.ip@
+  port: @redis.port@
+
+

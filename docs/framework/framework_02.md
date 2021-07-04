@@ -13,31 +13,31 @@
 
 ### 修改数据库
 
-<img src="../images/image-20210701055307539.png" alt="image-20210701055307539" style="zoom:50%;" />
+![image-20210705052356971](../images/image-20210705052356971.png)
 
 ### 修改包名
 
-<img src="../images/image-20210701055359565.png" alt="image-20210701055359565" style="zoom:50%;" />
+![image-20210705052415284](../images/image-20210705052415284.png)
 
 ### 修改配置文件
 
-<img src="../images/image-20210701055435454.png" alt="image-20210701055435454" style="zoom:50%;" />
+![image-20210705052505333](../images/image-20210705052505333.png)
 
 ## 启动服务、生成代码
 
-<img src="../images/image-20210701055534110.png" alt="image-20210701055534110" style="zoom:50%;" />
+![image-20210705052524872](../images/image-20210705052524872.png)
 
 ## 创建common模块
 
 ### 创建
 
-<img src="../images/image-20210701055649500.png" alt="image-20210701055649500" style="zoom:50%;" />
+![image-20210705052537885](../images/image-20210705052537885.png)
 
 ### 目录结构
 
 - 文件从renren-fast中拷贝
 
-  <img src="../images/image-20210701055751177.png" alt="image-20210701055751177" style="zoom:50%;" />
+  ![image-20210705052552679](../images/image-20210705052552679.png)
 
 ### pom
 

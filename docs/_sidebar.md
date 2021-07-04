@@ -14,5 +14,6 @@
     * [整合多环境开发](framework/framework_11.md)
     * [整合Redisson](framework/framework_12.md)
     * [整合Spring Cache](framework/framework_13.md)
+    * [整合全部模块](framework/framework_14.md)
 * 技术篇
     * [dependencyManagement使用说明](technology/technology_01.md)
